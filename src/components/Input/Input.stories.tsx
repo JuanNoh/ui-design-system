@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Input } from './Input';
 
+/**
+ * Componente Input, con variantes (`primary`, `secondary`) y tamaños (`sm`, `md`, `lg`). Incluye estado `disabled`.
+ * */
+
 const meta: Meta<typeof Input> = {
   title: 'Components/Input',
   component: Input,
@@ -10,7 +14,9 @@ const meta: Meta<typeof Input> = {
     fullWidth: true,
   },
   parameters: { a11y: { disable: false } },
+  tags: ['autodocs'],
 };
+
 export default meta;
 
 type Story = StoryObj<typeof meta>;

@@ -6,6 +6,10 @@ import {
   getLabelClasses,
 } from './Input.logic';
 
+/**
+ * Componente de botón accesible, con variantes (`primary`, `secondary`) y tamaños (`sm`, `md`, `lg`). Incluye estado `isLoading` y `disabled`.
+ * */
+
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
     id,

@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
+/**
+ * Componente de botón accesible, con variantes (`primary`, `secondary`) y tamaños (`sm`, `md`, `lg`). Incluye estado `isLoading` y `disabled`.
+ * */
+
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
@@ -9,6 +13,7 @@ const meta: Meta<typeof Button> = {
     variant: 'primary',
     size: 'md',
   },
+  tags: ['autodocs'],
 };
 
 export default meta;
