@@ -1,6 +1,6 @@
 # Mi Librería de Componentes UI — React + TypeScript + Tailwind v4
 
-[![Brand UI — captura](./docs/cover.png)](https://ui-design-system-six.vercel.app/)
+[![Brand UI — captura](./docs/cover.jpg)](https://ui-design-system-six.vercel.app/)
 
 > 🔗 **Demo en Vercel:** https://ui-design-system-six.vercel.app/
 
