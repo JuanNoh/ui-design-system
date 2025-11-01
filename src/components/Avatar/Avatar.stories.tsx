@@ -15,6 +15,7 @@ const meta: Meta<typeof Avatar> = {
   parameters: {
     a11y: { disable: false },
   },
+  tags: ['autodocs'],
 };
 export default meta;
 
