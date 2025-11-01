@@ -1,10 +1,10 @@
-import { forwardRef, useId } from 'react';
+import { forwardRef } from 'react';
 import type { TextareaProps } from './Textarea.types';
-import {
-  getTextareaClasses,
-  getTextareaWrapperClasses,
-  getLabelClasses,
-} from './Textarea.logic.ts';
+import { getTextareaClasses } from './Textarea.logic.ts';
+import { FormLabel } from '../Form/FormLabel.tsx';
+import { ErrorMessage } from '../Form/ErrorMessage.tsx';
+import { useFormAccessibility } from '../../hooks/useFormAccessibility.ts';
+import { FormControl } from '../Form/FormControl.tsx';
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   function Textarea(
@@ -22,29 +22,24 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     },
     ref
   ) {
-    const autoId = useId();
-    const inputId = id ?? `ta-${autoId}`;
-    const descId = description ? `${inputId}-desc` : undefined;
-    const errId = error ? `${inputId}-err` : undefined;
-
-    const describedBy = [descId, errId].filter(Boolean).join(' ') || undefined;
+    const { inputId, errorId, a11yProps } = useFormAccessibility({
+      id,
+      error,
+      description,
+      prefix: 'in',
+    });
 
     return (
-      <div className={getTextareaWrapperClasses({ fullWidth })}>
-        {label && (
-          <label htmlFor={inputId} className={getLabelClasses(disabled)}>
-            {label}
-          </label>
-        )}
+      <FormControl fullWidth={fullWidth}>
+        <FormLabel htmlFor={inputId} disabled={disabled}>
+          {label}
+        </FormLabel>
 
         <div className="relative">
           <textarea
-            id={inputId}
             ref={ref}
             rows={rows}
             disabled={disabled}
-            aria-invalid={!!error || undefined}
-            aria-describedby={describedBy}
             className={
               getTextareaClasses({
                 size,
@@ -52,16 +47,13 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
                 error,
               }) + (className ? ` ${className}` : '')
             }
+            {...a11yProps}
             {...rest}
           />
         </div>
 
-        {error && (
-          <p id={errId} className="text-xs text-red-600">
-            {error}
-          </p>
-        )}
-      </div>
+        <ErrorMessage id={errorId}>{error}</ErrorMessage>
+      </FormControl>
     );
   }
 );

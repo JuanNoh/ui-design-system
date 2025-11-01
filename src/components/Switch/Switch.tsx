@@ -1,4 +1,4 @@
-import { forwardRef, useId, useMemo } from 'react';
+import { forwardRef, useMemo } from 'react';
 import type { SwitchProps } from './Switch.types.ts';
 import {
   getLabelTextClasses,
@@ -8,6 +8,8 @@ import {
   getWrapperClasses,
 } from './Switch.logic';
 import { cn } from '../../utils/cn';
+import { ErrorMessage } from '../Form/ErrorMessage.tsx';
+import { useFormAccessibility } from '../../hooks/useFormAccessibility.ts';
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   {
@@ -24,30 +26,30 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   },
   ref
 ) {
-  const autoId = useId();
-  const switchId = id ?? `sw-${autoId}`;
-  const errId = error ? `${switchId}-err` : undefined;
-
   const isChecked = useMemo(
     () => (checked !== undefined ? checked : defaultChecked),
     [checked, defaultChecked]
   );
 
+  const { inputId, errorId, a11yProps } = useFormAccessibility({
+    id,
+    error,
+    prefix: 'sw',
+  });
+
   return (
     <div className={cn(getWrapperClasses(), wrapperClassName)}>
-      <label htmlFor={switchId} className={getLabelWrapperClasses(disabled)}>
+      <label htmlFor={inputId} className={getLabelWrapperClasses(disabled)}>
         <input
-          id={switchId}
           ref={ref}
           type="checkbox"
           role="switch"
           disabled={disabled}
           aria-checked={isChecked}
-          aria-invalid={!!error || undefined}
-          aria-describedby={errId}
           checked={checked}
           defaultChecked={defaultChecked}
           className={cn('sr-only', className)}
+          {...a11yProps}
           {...rest}
         />
 
@@ -69,11 +71,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
         )}
       </label>
 
-      {error && (
-        <p id={errId} className="text-xs text-red-600">
-          {error}
-        </p>
-      )}
+      <ErrorMessage id={errorId}>{error}</ErrorMessage>
     </div>
   );
 });
