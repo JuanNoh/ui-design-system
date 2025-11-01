@@ -7,13 +7,6 @@ export function getTextareaWrapperClasses({
   return cn('flex flex-col gap-1.5', fullWidth && 'w-full');
 }
 
-export function getLabelClasses(disabled?: boolean) {
-  return cn(
-    'text-sm font-medium',
-    disabled ? 'text-neutral-400 cursor-not-allowed' : 'text-neutral-800'
-  );
-}
-
 export function getTextareaClasses({
   size = 'md',
 }: {

@@ -1,26 +1,9 @@
 import { cn } from '../../utils/cn';
 import type { InputProps } from './Input.types';
 
-export function getInputWrapperClasses({
-  fullWidth,
-}: Pick<InputProps, 'fullWidth'>) {
-  return cn('flex flex-col gap-1.5', fullWidth && 'w-full');
-}
+type InputClassProps = Pick<InputProps, 'size' | 'disabled'>;
 
-export function getLabelClasses(disabled?: boolean) {
-  return cn(
-    'text-sm font-medium',
-    disabled ? 'text-neutral-400 cursor-not-allowed' : 'text-neutral-800'
-  );
-}
-
-export function getInputClasses({
-  size = 'md',
-}: {
-  size?: InputProps['size'];
-  disabled?: boolean;
-  error?: string;
-}) {
+export function getInputClasses({ size = 'md' }: InputClassProps) {
   const base =
     'w-full rounded border border-gray-300 outline-none transition ' +
     'bg-white text-neutral-900 placeholder:text-neutral-400' +
