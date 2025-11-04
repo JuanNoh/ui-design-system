@@ -6,6 +6,8 @@ import { FormLabel } from '../Form/FormLabel.tsx';
 
 import { useFormAccessibility } from '../../hooks/useFormAccessibility.ts';
 import { FormControl } from '../Form/FormControl.tsx';
+import { usePasswordToggle } from '../../hooks/usePasswordToggle.ts';
+import { PasswordToggleButton } from './PasswordToggleButton.tsx';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
   {
@@ -17,6 +19,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     fullWidth,
     disabled,
     className,
+    type,
     ...rest
   },
   ref
@@ -28,6 +31,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
     prefix: 'in',
   });
 
+  const { isPasswordField, passwordToggleProps, inputType } =
+    usePasswordToggle(type);
+
   return (
     <FormControl fullWidth={fullWidth}>
       <FormLabel htmlFor={inputId} disabled={disabled}>
@@ -38,6 +44,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
         <input
           ref={ref}
           disabled={disabled}
+          type={inputType}
           className={
             getInputClasses({
               size,
@@ -47,6 +54,10 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
           {...a11yProps}
           {...rest}
         />
+
+        {isPasswordField && (
+          <PasswordToggleButton disabled={disabled} {...passwordToggleProps} />
+        )}
       </div>
 
       <ErrorMessage id={errorId}>{error}</ErrorMessage>

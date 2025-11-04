@@ -53,3 +53,11 @@ export const Sizes: Story = {
     </div>
   ),
 };
+
+export const Password: Story = {
+  args: {
+    label: 'Contraseña',
+    placeholder: '••••••••',
+    type: 'password',
+  },
+};

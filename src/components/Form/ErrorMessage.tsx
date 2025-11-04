@@ -1,5 +1,5 @@
 import { type HTMLAttributes } from 'react';
-import { cn } from '../../utils/cn.ts'; // Asegúrate que la ruta a 'cn' sea correcta
+import { cn } from '../../utils/cn.ts';
 
 interface ErrorMessageProps extends HTMLAttributes<HTMLParagraphElement> {
   children?: string;
