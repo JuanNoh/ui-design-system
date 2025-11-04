@@ -1,12 +1,6 @@
 import { cn } from '../../utils/cn';
 import type { TextareaProps } from './Textarea.types';
 
-export function getTextareaWrapperClasses({
-  fullWidth,
-}: Pick<TextareaProps, 'fullWidth'>) {
-  return cn('flex flex-col gap-1.5', fullWidth && 'w-full');
-}
-
 export function getTextareaClasses({
   size = 'md',
 }: {

@@ -6,7 +6,7 @@ type InputClassProps = Pick<InputProps, 'size' | 'disabled'>;
 export function getInputClasses({ size = 'md' }: InputClassProps) {
   const base =
     'w-full rounded border border-gray-300 outline-none transition ' +
-    'bg-white text-neutral-900 placeholder:text-neutral-400' +
+    'bg-white text-neutral-900 placeholder:text-neutral-400 ' +
     'hover:border-primary-600 focus:border-primary-600';
 
   const invalid =
