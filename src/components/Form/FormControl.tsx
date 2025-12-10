@@ -1,5 +1,5 @@
 import { type HTMLAttributes, type ReactNode } from 'react';
-import { cn } from '../../utils/cn';
+import { cn } from '@/lib/utils';
 
 interface FormControlProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes } from 'react';
-import type { SizeToken } from '../../types/common';
+import type { SizeToken } from '@/types/common';
 
 export interface CheckboxProps
   extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {

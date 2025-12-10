@@ -1,2 +1,2 @@
-export * from './Alert.tsx';
-export * from './Alert.types.ts';
+export * from './alert.component';
+export * from './alert.types';

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Switch } from './Switch';
+import { Switch } from '@/components/switch/switch.component';
 import { useState } from 'react';
 
 /**

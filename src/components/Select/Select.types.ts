@@ -1,32 +1,57 @@
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
-import type { SizeToken } from '../../types/common';
+import * as React from 'react';
+import { type VariantProps } from 'class-variance-authority';
+import {
+  selectTriggerVariants,
+  selectContentVariants,
+  selectItemVariants,
+} from './select.variants';
 
-export interface SelectOption {
-  label: ReactNode;
-  value: string | number;
+export interface SelectProps {
+  children: React.ReactNode;
+  value?: string;
+  defaultValue?: string;
+  onValueChange?: (value: string) => void;
+  open?: boolean;
+  onOpenChange?: (open: boolean) => void;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface SelectGroupProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
+
+export interface SelectValueProps {
+  placeholder?: string;
+}
+
+export interface SelectTriggerProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof selectTriggerVariants> {
+  asChild?: boolean;
+}
+
+export interface SelectContentProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    Omit<VariantProps<typeof selectContentVariants>, 'position'> {
+  position?: 'popper' | 'item-aligned';
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface SelectLabelProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
+
+export interface SelectItemProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof selectItemVariants> {
+  value: string;
   disabled?: boolean;
 }
 
-export interface SelectProps
-  extends Omit<
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    'onChange' | 'value' | 'defaultValue' | 'size'
-  > {
-  id?: string;
-  label?: string;
-  description?: string;
-  error?: string;
-  size?: SizeToken;
-  fullWidth?: boolean;
-  placeholder?: string;
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+export interface SelectSeparatorProps
+  extends React.HTMLAttributes<HTMLDivElement> {}
+
+export interface SelectOption {
+  label: string;
+  value: string;
   disabled?: boolean;
-  options: SelectOption[];
-
-  value?: SelectOption['value'] | null;
-  onChange?: (value: SelectOption['value'] | null) => void;
-
-  defaultValue?: SelectOption['value'] | null;
-
-  className?: string;
-  name?: string;
 }

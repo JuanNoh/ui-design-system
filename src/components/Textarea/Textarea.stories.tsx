@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Textarea } from './Textarea';
+import { Textarea } from '@/components/textarea/textarea.component';
 
 /**
  * Componente Textarea para entrada de texto.

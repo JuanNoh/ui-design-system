@@ -1,2 +1,2 @@
-export * from './Switch.tsx';
-export * from './Switch.types.ts';
+export * from './switch.component.tsx';
+export * from './switch.types';

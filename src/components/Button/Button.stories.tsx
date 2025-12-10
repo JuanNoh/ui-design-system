@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from './Button';
+import { Button } from '@/components/button/button.component';
 
 /**
- * Componente de botón accesible, con variantes (`primary`, `secondary`) y tamaños (`sm`, `md`, `lg`). Incluye estado `isLoading` y `disabled`.
+ * Componente de botón accesible, con variantes (`default`, `secondary`, `outline`, `ghost`, `link`, `destructive`) y tamaños (`default`, `sm`, `lg`, `icon`). Incluye estado `isLoading` y `disabled`.
  * */
 
 const meta: Meta<typeof Button> = {
@@ -10,8 +10,8 @@ const meta: Meta<typeof Button> = {
   component: Button,
   args: {
     children: 'Guardar cambios',
-    variant: 'primary',
-    size: 'md',
+    variant: 'default',
+    size: 'default',
   },
   tags: ['autodocs'],
 };
@@ -21,6 +21,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
+    variant: 'default',
     children: 'Guardar cambios',
   },
 };
@@ -29,6 +30,34 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
     children: 'Acción secundaria',
+  },
+};
+
+export const Outline: Story = {
+  args: {
+    variant: 'outline',
+    children: 'Outline',
+  },
+};
+
+export const Ghost: Story = {
+  args: {
+    variant: 'ghost',
+    children: 'Ghost',
+  },
+};
+
+export const Destructive: Story = {
+  args: {
+    variant: 'destructive',
+    children: 'Eliminar',
+  },
+};
+
+export const Link: Story = {
+  args: {
+    variant: 'link',
+    children: 'Link',
   },
 };
 

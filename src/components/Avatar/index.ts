@@ -1,2 +1,2 @@
-export * from './Avatar';
-export * from './Avatar.types';
+export * from './avatar.component';
+export * from './avatar.types';

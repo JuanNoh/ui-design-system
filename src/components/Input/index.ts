@@ -1,2 +1,2 @@
-export * from './Input';
-export * from './Input.types';
+export * from './input.component';
+export * from './input.types';

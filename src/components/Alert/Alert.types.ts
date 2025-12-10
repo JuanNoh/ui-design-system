@@ -1,13 +1,11 @@
-import type { ReactNode } from 'react';
+import { type HTMLAttributes } from 'react';
+import { type VariantProps } from 'class-variance-authority';
+import { alertVariants } from './alert.variants';
 
-export type AlertVariant = 'info' | 'success' | 'warning' | 'error';
-
-export interface AlertProps {
-  variant?: AlertVariant;
-  title?: string;
-  children: ReactNode;
+export interface AlertProps
+  extends HTMLAttributes<HTMLDivElement>,
+    VariantProps<typeof alertVariants> {
   showIcon?: boolean;
   dismissible?: boolean;
   onDismiss?: () => void;
-  className?: string;
 }
