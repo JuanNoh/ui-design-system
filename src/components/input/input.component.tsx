@@ -1,11 +1,11 @@
 import { forwardRef } from 'react';
 import type { InputProps } from './input.types';
 import { getInputClasses } from './input.variants';
-import { ErrorMessage } from '@/components/Form/ErrorMessage';
-import { FormLabel } from '@/components/Form/FormLabel';
+import { ErrorMessage } from '@/components/form/error-message';
+import { FormLabel } from '@/components/form/form-label';
 
 import { useFormAccessibility } from '@/hooks/useFormAccessibility';
-import { FormControl } from '@/components/Form/FormControl';
+import { FormControl } from '@/components/form/form-control';
 import { usePasswordToggle } from '@/hooks/usePasswordToggle';
 import { PasswordToggleButton } from './input-password-toggle.component';
 

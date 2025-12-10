@@ -1,9 +1,9 @@
 import { forwardRef, useId } from 'react';
 import type { TextareaProps } from './textarea.types';
 import { useFormAccessibility } from '@/hooks/useFormAccessibility';
-import { FormControl } from '@/components/Form/FormControl';
-import { FormLabel } from '@/components/Form/FormLabel';
-import { ErrorMessage } from '@/components/Form/ErrorMessage';
+import { FormControl } from '@/components/form/form-control';
+import { FormLabel } from '@/components/form/form-label';
+import { ErrorMessage } from '@/components/form/error-message';
 import { cn } from '@/utils/cn';
 import { textareaVariants } from './textarea.variants';
 

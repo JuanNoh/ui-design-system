@@ -8,7 +8,7 @@ import {
   getWrapperClasses,
 } from './switch.variants.ts';
 import { cn } from '@/utils/cn.ts';
-import { ErrorMessage } from '@/components/Form/ErrorMessage.tsx';
+import { ErrorMessage } from '@/components/form/error-message';
 import { useFormAccessibility } from '@/hooks/useFormAccessibility.ts';
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
